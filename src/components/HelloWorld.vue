@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-    <div v-on:click="doSomething">CLICK HERE</div> 
+    <div v-on:click="doesNotWork">DOES NOT WORK</div> 
+    <div v-on:click="works">WORKS</div>
     {{v}}   
   </div>
 </template>
@@ -14,9 +15,12 @@ import { namespace } from "vuex-class"
 @Component
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
-  doSomething() {
+  doesNotWork() {
     const store = this.$store.state.test;
-    test.mutations.mutateTestVal(store, "new value");
+    test.mutations.mutateTestVal(store, "new value (not works)");
+  }
+  works() {    
+    this.$store.commit("test/mutateTestVal", "new value (works)");    
   }
   get v() : string {
     const store = this.$store.state.test;
