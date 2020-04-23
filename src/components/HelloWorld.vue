@@ -1,7 +1,8 @@
 <template>
   <div class="hello">
-    <div v-on:click="doesNotWork">DOES NOT WORK</div> 
-    <div v-on:click="works">WORKS</div>
+    <button v-on:click="doesNotWork">DOES NOT WORK</button>
+    <button v-on:click="works">WORKS</button>
+    
     {{v}}   
   </div>
 </template>
